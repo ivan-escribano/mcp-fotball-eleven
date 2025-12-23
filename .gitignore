@@ -38,8 +38,8 @@ env/
 *.swo
 *~
 
-# Database (allow mcp_scout_football.db)
-# *.db
+# Database (local SQLite only)
+*.db
 *.sqlite
 *.sqlite3
 
@@ -53,6 +53,7 @@ logs/
 htmlcov/
 .tox/
 .nox/
+testing/test_http_*.py
 
 # Jupyter
 .ipynb_checkpoints/

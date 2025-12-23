@@ -1,4 +1,5 @@
 from sqlmodel import SQLModel, Field, UniqueConstraint
+from sqlalchemy import String
 
 
 class PlayerStats(SQLModel, table=True):
@@ -13,10 +14,10 @@ class PlayerStats(SQLModel, table=True):
     # Identity
     player_id: int
     team_id: int
-    player: str
-    team: str
-    league: str
-    season: str
+    player: str = Field(sa_type=String(200))
+    team: str = Field(sa_type=String(200))
+    league: str = Field(sa_type=String(100))
+    season: str = Field(sa_type=String(20))
 
     # Playing time
     appearances: int | None = None
