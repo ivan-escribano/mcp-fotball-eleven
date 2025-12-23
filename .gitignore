@@ -38,8 +38,8 @@ env/
 *.swo
 *~
 
-# Database
-*.db
+# Database (allow mcp_scout_football.db)
+# *.db
 *.sqlite
 *.sqlite3
 
