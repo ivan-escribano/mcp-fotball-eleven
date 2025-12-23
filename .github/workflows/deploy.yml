@@ -9,8 +9,6 @@ on:
 env:
   AZURE_CONTAINER_REGISTRY: mcpscoutfootball.azurecr.io
   IMAGE_NAME: mcp-scout-football
-  RESOURCE_GROUP: mcp-scout-football-rg
-  APP_SERVICE_NAME: mcp-scout-football-app
 
 jobs:
   build-and-deploy:
@@ -21,36 +19,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Login to Azure
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      # 3. Login to Azure Container Registry
+      # 2. Login to Azure Container Registry
       - name: Login to ACR
-        uses: azure/docker-login@v2
+        uses: docker/login-action@v3
         with:
-          login-server: ${{ env.AZURE_CONTAINER_REGISTRY }}
+          registry: ${{ env.AZURE_CONTAINER_REGISTRY }}
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
-      # 4. Build Docker image
-      - name: Build Docker image
+      # 3. Build and push Docker image
+      - name: Build and push Docker image
         run: |
-          docker build -t ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }} .
-          docker tag ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }} \
-                     ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-
-      # 5. Push to Azure Container Registry
-      - name: Push to ACR
-        run: |
-          docker push ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker build -t ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:latest .
           docker push ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:latest
-
-      # 6. Deploy to Azure App Service
-      - name: Deploy to App Service
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: ${{ env.APP_SERVICE_NAME }}
-          images: ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
