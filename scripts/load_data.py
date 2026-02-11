@@ -9,7 +9,9 @@ def load_league_data(season: str, league: str):
     print(f"📥 Loading {league} {season}...")
 
     scraper = Sofascore()
+
     players_df = scraper.scrape_player_league_stats(season, league)
+
     save_players(players_df, league=league, season=season)
 
     print(f"✅ {league} {season} loaded")

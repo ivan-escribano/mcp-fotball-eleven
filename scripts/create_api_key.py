@@ -45,5 +45,3 @@ if __name__ == "__main__":
     print(f"Name: {args.name}")
     print(f"Key:  {key}")
     print("=" * 50 + "\n")
-
-# py -m scripts/create_api_key.py --name "test-client"

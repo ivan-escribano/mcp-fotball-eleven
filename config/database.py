@@ -7,7 +7,7 @@ load_dotenv()
 
 # Database configuration
 DATA_DIR = Path(__file__).parent.parent / "data"
-DB_NAME = "mcp_scout_football.db"
+DB_NAME = "mcp_eleven.db"
 
 # Use Azure SQL if DATABASE_URL is set, otherwise use SQLite
 DATABASE_URL = os.getenv("DATABASE_URL")

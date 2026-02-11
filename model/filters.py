@@ -1,7 +1,6 @@
 from typing import Optional, Literal
 from pydantic import BaseModel, Field
 
-# Valid league names for Sofascore
 LeagueName = Literal[
     "EPL", "La Liga", "Bundesliga", "Serie A", "Ligue 1",
     "Champions League", "Europa League", "Europa Conference League", "Euros",
@@ -21,10 +20,6 @@ class PlayerStatsFilters(BaseModel):
     All fields are optional for maximum freedom.
     """
 
-    # ------------------------------------------------------------
-    # IDENTITY (text search with LIKE)
-    # ------------------------------------------------------------
-
     player: Optional[str] = Field(
         default=None,
         description="Player name to search for. Supports partial matching (e.g., 'Messi' finds 'Lionel Messi')."
@@ -41,11 +36,6 @@ class PlayerStatsFilters(BaseModel):
         default="25/26",
         description="Season identifier (e.g., '25/26', '24/25')."
     )
-
-    # ------------------------------------------------------------
-    # PLAYING TIME (min only - we want players with enough minutes)
-    # ------------------------------------------------------------
-
     min_appearances: Optional[int] = Field(
         default=None,
         description="Minimum appearances. Use to filter regular starters (e.g., 10+ means consistent selection)."
@@ -54,10 +44,6 @@ class PlayerStatsFilters(BaseModel):
         default=None,
         description="Minimum minutes played. Use 900 for ~10 games, 2500+ for regular starter."
     )
-
-    # ------------------------------------------------------------
-    # OFFENSIVE STATS (min - we want high scorers)
-    # ------------------------------------------------------------
 
     min_goals: Optional[int] = Field(
         default=None,
@@ -100,10 +86,6 @@ class PlayerStatsFilters(BaseModel):
         description="Maximum offsides. Low values = good timing in runs."
     )
 
-    # ------------------------------------------------------------
-    # DRIBBLING & BALL CONTROL (min for good, max for bad)
-    # ------------------------------------------------------------
-
     min_successful_dribbles: Optional[int] = Field(
         default=None,
         description="Minimum successful dribbles. 50+ is elite for wingers."
@@ -120,10 +102,6 @@ class PlayerStatsFilters(BaseModel):
         default=None,
         description="Minimum times fouled. High values = players who draw fouls."
     )
-
-    # ------------------------------------------------------------
-    # PASSING (min - we want good passers)
-    # ------------------------------------------------------------
 
     min_accurate_passes: Optional[int] = Field(
         default=None,
@@ -157,11 +135,6 @@ class PlayerStatsFilters(BaseModel):
         default=None,
         description="Minimum long ball accuracy %. Above 50% is excellent."
     )
-
-    # ------------------------------------------------------------
-    # DEFENSIVE (min for good actions, max for errors)
-    # ------------------------------------------------------------
-
     min_tackles: Optional[int] = Field(
         default=None,
         description="Minimum tackles. 50+ is very good for defensive players."
@@ -190,11 +163,6 @@ class PlayerStatsFilters(BaseModel):
         default=None,
         description="Maximum errors leading to shot. Low values = reliable."
     )
-
-    # ------------------------------------------------------------
-    # DUELS (min - we want dominant players)
-    # ------------------------------------------------------------
-
     min_ground_duels_won: Optional[int] = Field(
         default=None,
         description="Minimum ground duels won."
@@ -219,11 +187,6 @@ class PlayerStatsFilters(BaseModel):
         default=None,
         description="Minimum overall duel success %. Above 55% is solid."
     )
-
-    # ------------------------------------------------------------
-    # DISCIPLINE (max - we want disciplined players)
-    # ------------------------------------------------------------
-
     max_yellow_cards: Optional[int] = Field(
         default=None,
         description="Maximum yellow cards. 0-3 is clean, 8+ is concerning."
@@ -232,11 +195,6 @@ class PlayerStatsFilters(BaseModel):
         default=None,
         description="Maximum red cards. Use 0 for no send-offs."
     )
-
-    # ------------------------------------------------------------
-    # GOALKEEPER (min for saves, max for goals conceded)
-    # ------------------------------------------------------------
-
     min_saves: Optional[int] = Field(
         default=None,
         description="Minimum saves. 80+ per season is high workload."
@@ -273,11 +231,6 @@ class PlayerStatsFilters(BaseModel):
         default=None,
         description="Minimum total runs out of goal."
     )
-
-    # ------------------------------------------------------------
-    # RESULTS CONTROL (sorting and pagination)
-    # ------------------------------------------------------------
-
     order_by: Optional[str] = Field(
         default="assists",
         description="Column to sort by (e.g., 'assists', 'big_chances_created', 'accurate_passes', 'goals', 'tackles', 'saves')"
@@ -286,7 +239,6 @@ class PlayerStatsFilters(BaseModel):
         default="DESC",
         description="Sort direction: 'DESC' (highest first, default) or 'ASC' (lowest first)"
     )
-
     limit: int = Field(
         default=10,
         description="Maximum number of results to return (1-100)",

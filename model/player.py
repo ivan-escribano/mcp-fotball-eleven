@@ -8,22 +8,16 @@ class PlayerStats(SQLModel, table=True):
     __tablename__ = "player_stats"
     __table_args__ = (UniqueConstraint("player_id", "league", "season"),)
 
-    # Primary key (auto-increment)
     id: int | None = Field(default=None, primary_key=True)
 
-    # Identity
     player_id: int
     team_id: int
     player: str = Field(sa_type=String(200))
     team: str = Field(sa_type=String(200))
     league: str = Field(sa_type=String(100))
     season: str = Field(sa_type=String(20))
-
-    # Playing time
     appearances: int | None = None
     minutes_played: int | None = None
-
-    # Offensive
     goals: int | None = None
     assists: int | None = None
     total_shots: int | None = None
@@ -36,14 +30,10 @@ class PlayerStats(SQLModel, table=True):
     hit_woodwork: int | None = None
     offsides: int | None = None
     expected_goals: float | None = None
-
-    # Dribbling
     successful_dribbles: int | None = None
     successful_dribbles_percentage: float | None = None
     dispossessed: int | None = None
     dribbled_past: int | None = None
-
-    # Passing
     accurate_passes: int | None = None
     accurate_passes_percentage: float | None = None
     accurate_final_third_passes: int | None = None
@@ -52,8 +42,6 @@ class PlayerStats(SQLModel, table=True):
     accurate_crosses_percentage: float | None = None
     accurate_long_balls: int | None = None
     accurate_long_balls_percentage: float | None = None
-
-    # Defensive
     tackles: int | None = None
     interceptions: int | None = None
     clearances: int | None = None
@@ -63,16 +51,12 @@ class PlayerStats(SQLModel, table=True):
     red_cards: int | None = None
     error_lead_to_goal: int | None = None
     error_lead_to_shot: int | None = None
-
-    # Duels
     ground_duels_won: int | None = None
     ground_duels_won_percentage: float | None = None
     aerial_duels_won: int | None = None
     aerial_duels_won_percentage: float | None = None
     total_duels_won: int | None = None
     total_duels_won_percentage: float | None = None
-
-    # Goalkeeper
     saves: int | None = None
     saved_shots_from_inside_the_box: int | None = None
     saved_shots_from_outside_the_box: int | None = None
@@ -82,6 +66,4 @@ class PlayerStats(SQLModel, table=True):
     successful_runs_out: int | None = None
     punches: int | None = None
     runs_out: int | None = None
-
-    # Metadata
     updated_at: str | None = None

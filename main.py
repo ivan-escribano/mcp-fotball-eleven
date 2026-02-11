@@ -12,7 +12,7 @@ from config import HOST, PORT
 from auth import validate_request
 
 
-mcp = FastMCP("ScoutFootballMCP")
+mcp = FastMCP("MCPEleven")
 
 
 @mcp.custom_route("/health", methods=["GET"])

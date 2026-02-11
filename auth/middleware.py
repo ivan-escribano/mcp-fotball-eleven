@@ -38,17 +38,14 @@ def validate_api_key(token: str) -> bool:
         return True
 
 
-# Created: Read API key from URL or header (like Tavily)
 def validate_request(request) -> bool:
     """
     Validate API key from URL query param or header.
     URL: ?api_key=sk_xxx (like Tavily)
     Header: Authorization: Bearer sk_xxx
     """
-    # Try URL query parameter first (like Tavily)
     api_key = request.query_params.get("api_key")
 
-    # Fallback to Authorization header
     if not api_key:
         auth_header = request.headers.get("Authorization", "")
 
