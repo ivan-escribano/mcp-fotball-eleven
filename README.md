@@ -1,6 +1,6 @@
 # MCP Eleven
 
-> An MCP server that lets AI assistants search real football player statistics using natural language 40+ stats across 20+ leagues.
+> An MCP server that lets AI assistants search real football player statistics using natural language +3000 players across 20+ leagues.
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white)
 ![FastMCP](https://img.shields.io/badge/FastMCP-2.13.3-green)
