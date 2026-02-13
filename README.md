@@ -1,5 +1,3 @@
-
-https://github.com/user-attachments/assets/9ce7fbdb-6fd6-4981-b439-9f26476f974a
 # MCP Eleven
 
 > MCP Eleven is an open-source MCP server that connects to any MCP client (Claude, Cursor, VSCode) and turns natural language into football data analysis. Just describe what you're looking for, and the server translates your query into structured database operations across 40+ player stats and 20+ leagues. From there, you can dive into deep scouting analysis, generate comparisons, or export everything into Excel, PDF, Word and more. No SQL, no filters, no scraping, just ask.
@@ -10,7 +8,9 @@ https://github.com/user-attachments/assets/9ce7fbdb-6fd6-4981-b439-9f26476f974a
 ![Azure](https://img.shields.io/badge/Azure-Deployed-0078D4?logo=microsoftazure&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
+---
 
+## Demo
 https://github.com/user-attachments/assets/54d2aaa3-bd35-411b-aad1-27599455b108
 
 ---
