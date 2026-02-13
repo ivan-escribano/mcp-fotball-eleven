@@ -8,7 +8,7 @@
 ![Azure](https://img.shields.io/badge/Azure-Deployed-0078D4?logo=microsoftazure&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-https://github.com/ivan-escribano/mcp-eleven/raw/main/docs/demo/demo-mcp.mp4
+<video src="docs/demo/demo-mcp.mp4" controls width="100%"></video>
 
 ---
 
