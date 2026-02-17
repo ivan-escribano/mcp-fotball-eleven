@@ -1,5 +1,13 @@
-# MCP Eleven
+<div align="center">
+  <img 
+    src="https://github.com/user-attachments/assets/a28dfb9e-ad7b-44d6-88e4-dcd25b656a86"
+    width="100"
+    height="100"
+    style="border-radius:50%;"
+  />
+</div>
 
+# MCP Eleven 
 > An open-source MCP server that turns any AI assistant into a football data analytics and scouting platform.
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white)
