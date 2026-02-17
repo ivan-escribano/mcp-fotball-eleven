@@ -9,7 +9,11 @@
 ![Azure](https://img.shields.io/badge/Azure-Deployed-0078D4?logo=microsoftazure&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-<video src="docs/v1/images/demo/demo-mcp.mp4" controls width="100%"></video>
+---
+
+## Demo
+
+https://github.com/user-attachments/assets/54d2aaa3-bd35-411b-aad1-27599455b108
 
 ---
 
